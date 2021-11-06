@@ -23,5 +23,15 @@
             $datos=$articulos->insert_articulo($body["Descripcion"],$body["Unidad"],$body["Costo"],$body["Precio"],$body["Aplica_Isv"],$body["Porcentaje_Isv"],$body["Id_Socio"]);
             echo json_encode("Articulos Agregados");
         break;
+
+        case "UpdateArticulos":
+            $datos=$articulos->update_articulo($body["ID"],$body["Descripcion"],$body["Unidad"],$body["Costo"],$body["Precio"],$body["Aplica_Isv"],$body["Porcentaje_Isv"],$body["Id_Socio"]);
+            echo json_encode("Articulos Actualizados");
+        break;
+
+        case "DeleteArticulos":
+            $datos=$articulos->delete_articulo($body["ID"]);
+            echo json_encode("Articulos Borrado");
+        break;
     }
 ?>
