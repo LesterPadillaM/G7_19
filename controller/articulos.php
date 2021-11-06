@@ -7,7 +7,7 @@
 
     $body = json_decode(file_get_contents("php://input"), true);
 
-    switch($_GET[op]){
+    switch($_GET["op"]){
 
         case "GetArticulos":
             $datos=$articulos->get_articulos();
@@ -15,13 +15,13 @@
         break;
 
         case "GetUno":
-            $datos-$articulos->get_articulos($body["id"]);
+            $datos=$articulos->get_articulo($body["ID"]);
             echo json_encode($datos);
         break;
         
         case "InsertArticulos":
-            $datos=$articulos->insert_articulos($body["descripcion"],$body["unidad"],$body["costo"],$body["precio"],$body["aplica_isv"],$body["porcentaje_isv"],$body["estado"],$body["id_socio"]);
+            $datos=$articulos->insert_articulo($body["Descripcion"],$body["Unidad"],$body["Costo"],$body["Precio"],$body["Aplica_Isv"],$body["Porcentaje_Isv"],$body["Id_Socio"]);
             echo json_encode("Articulos Agregados");
-        break:
+        break;
     }
 ?>
